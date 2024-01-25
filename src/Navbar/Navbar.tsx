@@ -27,6 +27,16 @@ interface NavbarProps {
 
 const siteName = 'Ratchanan Site'
 const drawerWidth = 240
+const drawerItems = [
+  {
+    title: 'Home',
+    path: routes.HOME.path,
+  },
+  {
+    title: 'Link Hub',
+    path: routes.LINK_HUB.path,
+  },
+]
 const navItems = [
   {
     title: 'Home',
@@ -53,9 +63,9 @@ const Navbar = (props: NavbarProps) => {
       </Typography>
       <Divider />
       <List>
-        {navItems.map((item) => (
+        {drawerItems.map((item) => (
           <ListItem key={item.title} disablePadding>
-            <ListItemButton component={Link} to={item.path} sx={{ textAlign: 'center' }}>
+            <ListItemButton component={Link} to={item.path} sx={{ pl: 7, pr: 4 }}>
               <ListItemText primary={item.title} />
             </ListItemButton>
           </ListItem>
