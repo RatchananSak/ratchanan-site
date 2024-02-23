@@ -47,7 +47,7 @@ const LinkHubScreen = () => {
   useTitle(routes.LINK_HUB.title)
   const { width } = useWindowDimensions()
   const links = domains.map((domain) => paths.map((path) => `${domain}${path}`))
-  const [expanded, setExpanded] = React.useState<string | false>('accordion3')
+  const [expanded, setExpanded] = React.useState<string | false>('accordion2')
 
   const handleChange = (panel: string) => (event: React.SyntheticEvent, isExpanded: boolean) => {
     setExpanded(isExpanded ? panel : false)
