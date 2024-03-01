@@ -13,12 +13,7 @@ import useWindowDimensions from '../../Utilities/useWindowDimensions'
 
 import { routes } from '../../routes'
 
-const domains = [
-  'app.tidlor.com',
-  'app-staging.tidlor.com',
-  'prakantidloh.tidlor.com',
-  'prakantidloh-staging.tidlor.com',
-]
+const domains = ['app.tidlor.com', 'prakantidloh.tidlor.com']
 
 const paths = [
   '',
@@ -47,7 +42,7 @@ const LinkHubScreen = () => {
   useTitle(routes.LINK_HUB.title)
   const { width } = useWindowDimensions()
   const links = domains.map((domain) => paths.map((path) => `${domain}${path}`))
-  const [expanded, setExpanded] = React.useState<string | false>('accordion2')
+  const [expanded, setExpanded] = React.useState<string | false>('accordion1')
 
   const handleChange = (panel: string) => (event: React.SyntheticEvent, isExpanded: boolean) => {
     setExpanded(isExpanded ? panel : false)
