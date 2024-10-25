@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useRef } from 'react'
 import { useTitle } from 'react-use'
 import Typography from '@mui/material/Typography'
 import Accordion from '@mui/material/Accordion'
@@ -41,7 +41,7 @@ const paths = [
 const LinkHubScreen = () => {
   useTitle(routes.LINK_HUB.title)
   const { width } = useWindowDimensions()
-  const links = domains.map((domain) => paths.map((path) => `${domain}${path}`))
+  const links = useRef(domains.map((domain) => paths.map((path) => `${domain}${path}`)))
   const [expanded, setExpanded] = React.useState<string | false>('accordion1')
 
   const handleChange = (panel: string) => (event: React.SyntheticEvent, isExpanded: boolean) => {
@@ -67,7 +67,7 @@ const LinkHubScreen = () => {
           <AccordionDetails>
             <Paper variant="outlined">
               <List>
-                {links[domainIndex].map((item) => (
+                {links.current[domainIndex].map((item) => (
                   <ListItem>
                     <Link href={`https://${item}`} target="_blank" rel="noreferrer" sx={{ wordBreak: 'break-all' }}>
                       {`https://${item}`}
