@@ -13,7 +13,7 @@ import useWindowDimensions from '../../Utilities/useWindowDimensions'
 
 import { routes } from '../../routes'
 
-const domains = ['app.tidlor.com', 'prakantidloh.tidlor.com']
+const domains = ['app.tidlor.com', 'prakantidloh.com', 'prakantidloh.tidlor.com']
 
 const paths = [
   '',
