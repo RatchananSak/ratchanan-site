@@ -9,12 +9,11 @@ import List from '@mui/material/List'
 import ListItem from '@mui/material/ListItem'
 import Link from '@mui/material/Link'
 import Paper from '@mui/material/Paper'
-import useWindowDimensions from '../../Utilities/useWindowDimensions'
 
+import useWindowDimensions from '../../Utilities/useWindowDimensions'
 import { routes } from '../../routes'
 
 const domains = ['app.tidlor.com', 'www.prakantidloh.com']
-
 const paths = [
   '',
   '/main',
