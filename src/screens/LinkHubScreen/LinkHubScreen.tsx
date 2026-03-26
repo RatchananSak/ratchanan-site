@@ -20,7 +20,7 @@ const LINKS = DOMAINS.map((domain) => PATHS.map((path) => `${domain}${path}`))
 const LinkHubScreen = () => {
   useTitle(routes.LINK_HUB.title)
   const { width } = useWindowDimensions()
-  const [expanded, setExpanded] = React.useState<string | null>('accordion1')
+  const [expanded, setExpanded] = React.useState<string | null>(null)
 
   const handleChange = useCallback(
     (panel: string) => (event: React.SyntheticEvent, isExpanded: boolean) => {
