@@ -1,8 +1,7 @@
-import * as React from 'react'
+import React, { useState, useMemo } from 'react'
 import { Link } from 'react-router-dom'
 import AppBar from '@mui/material/AppBar'
 import Box from '@mui/material/Box'
-import CssBaseline from '@mui/material/CssBaseline'
 import Divider from '@mui/material/Divider'
 import Drawer from '@mui/material/Drawer'
 import IconButton from '@mui/material/IconButton'
@@ -50,7 +49,7 @@ const navItems = [
 
 const Navbar = (props: NavbarProps) => {
   const { window } = props
-  const [mobileOpen, setMobileOpen] = React.useState(false)
+  const [mobileOpen, setMobileOpen] = useState(false)
 
   const handleDrawerToggle = () => {
     setMobileOpen((prevState) => !prevState)
@@ -74,11 +73,13 @@ const Navbar = (props: NavbarProps) => {
     </Box>
   )
 
-  const container = window !== undefined ? () => window().document.body : undefined
+  const container = useMemo(
+    () => (window !== undefined ? () => window().document.body : undefined),
+    [window],
+  )
 
   return (
     <Box sx={{ display: 'flex' }}>
-      <CssBaseline />
       <AppBar component="nav">
         <Toolbar>
           <IconButton

@@ -1,5 +1,4 @@
-import React, { useCallback } from 'react'
-import { useTitle } from 'react-use'
+import React, { useEffect, useCallback } from 'react'
 import Typography from '@mui/material/Typography'
 import Accordion from '@mui/material/Accordion'
 import AccordionDetails from '@mui/material/AccordionDetails'
@@ -17,13 +16,19 @@ import { DOMAINS, PATHS } from './constant'
 // Pre-compute links array at module level to avoid re-computation on every render
 const LINKS = DOMAINS.map((domain) => PATHS.map((path) => `${domain}${path}`))
 
+// Pre-compute panel IDs to avoid string concatenation in render
+const PANEL_IDS = DOMAINS.map((_, i) => `accordion${i}`)
+
 const LinkHubScreen = () => {
-  useTitle(routes.LINK_HUB.title)
+  useEffect(() => {
+    document.title = routes.LINK_HUB.title
+  }, [])
+
   const { width } = useWindowDimensions()
   const [expanded, setExpanded] = React.useState<string | null>(null)
 
   const handleChange = useCallback(
-    (panel: string) => (event: React.SyntheticEvent, isExpanded: boolean) => {
+    (_event: React.SyntheticEvent, isExpanded: boolean, panel: string) => {
       setExpanded(isExpanded ? panel : null)
     },
     [],
@@ -36,8 +41,9 @@ const LinkHubScreen = () => {
       </Typography>
       {DOMAINS.map((domain, domainIndex) => (
         <Accordion
-          expanded={expanded === `accordion${domainIndex}`}
-          onChange={handleChange(`accordion${domainIndex}`)}
+          key={PANEL_IDS[domainIndex]}
+          expanded={expanded === PANEL_IDS[domainIndex]}
+          onChange={(event, isExpanded) => handleChange(event, isExpanded, PANEL_IDS[domainIndex])}
           slotProps={{ transition: { unmountOnExit: true } }}
         >
           <AccordionSummary expandIcon={<ExpandMoreIcon />}>

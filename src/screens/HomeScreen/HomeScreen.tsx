@@ -1,12 +1,14 @@
-import React from 'react'
-import { useTitle } from 'react-use'
+import React, { useEffect } from 'react'
 import Typography from '@mui/material/Typography'
 import useWindowDimensions from '../../Utilities/useWindowDimensions'
 
 import { routes } from '../../routes'
 
 const HomeScreen = () => {
-  useTitle(routes.HOME.title)
+  useEffect(() => {
+    document.title = routes.HOME.title
+  }, [])
+
   const { width } = useWindowDimensions()
 
   return (

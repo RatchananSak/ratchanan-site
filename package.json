@@ -29,7 +29,6 @@
     ]
   },
   "dependencies": {
-    "@babel/plugin-proposal-private-property-in-object": "~7.21.11",
     "@emotion/react": "~11.14.0",
     "@emotion/styled": "~11.14.0",
     "@fontsource/roboto": "~5.0.8",
@@ -42,15 +41,14 @@
     "@types/react-dom": "19.2.3",
     "react": "19.2.3",
     "react-dom": "19.2.3",
-    "react-router-dom": "~7.0.0",
+    "react-router-dom": "^7.5.0",
     "react-scripts": "~5.0.1",
-    "react-use": "~17.5.0",
     "typescript": "~5.2.0",
     "web-vitals": "~4.2.4"
   },
   "devDependencies": {
-    "babel-plugin-react-compiler": "latest",
-    "eslint-plugin-react-hooks": "latest",
+    "babel-plugin-react-compiler": "19.1.0-rc.3",
+    "eslint-plugin-react-hooks": "^5.2.0",
     "gh-pages": "^6.1.1"
   }
 }
